@@ -1092,10 +1092,16 @@ app.get('/logindetails', (req, res) => {
     //     sellermail: sellermail
     // }
     Customer.find({}, (err, customers) => {
+    // Sellers.find({}, (err, sellers) => {
+    res.json({customers: customers});
+})
+})
+// })
+
+app.get('/sellerlogindetails', (req, res) => {
     Sellers.find({}, (err, sellers) => {
-    res.json({customers: customers, sellers: sellers});
-})
-})
+        res.json({sellers: sellers});
+    })
 })
 
 app.listen(PORT, function() {
