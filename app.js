@@ -608,7 +608,7 @@ router.post('/custregister', upload.single('file'), function(req, res, next) {
                    }
                }); 
               
-              var mailOptions = { from: 'zshopping1440@gmail.com', to: client.email, subject: 'Account Verification Token', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '.\n' };
+              var mailOptions = { from: 'zshopping1440@gmail.com', to: client.email, subject: 'Account Verification Token', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttps:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '.\n' };
               transporter.sendMail(mailOptions, function (err) {
                   if (err) { return res.status(500).send({ msg: err.message }); }
                   console.log('Verifying');
@@ -695,7 +695,7 @@ router.post('/sellregister', upload.single('file'), (req, res) => {
                            pass: 'zshopping11082019144'
                        }
                    }); 
-                var mailOptions = { from: 'zshopping1440@gmail.com', to: user.email, subject: 'Account Verification Token', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/sellerconfirmation\/' + token.token + '.\n' };
+                var mailOptions = { from: 'zshopping1440@gmail.com', to: user.email, subject: 'Account Verification Token', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttps:\/\/' + req.headers.host + '\/sellerconfirmation\/' + token.token + '.\n' };
                 transporter.sendMail(mailOptions, function (err) {
                     if (err) { return res.status(500).send({ msg: err.message }); }
                     console.log('Verifying');
@@ -707,20 +707,20 @@ router.post('/sellregister', upload.single('file'), (req, res) => {
       });
 });
 
-// Confirmation Get
-app.get('/confirmation/:token', function(req, res) {
-    // console.log(req.params.token);
-    res.render('./views/confirmation.ejs', {token: req.params.token});
-})
+// // Confirmation Get
+// app.get('/confirmation/:token', function(req, res) {
+//     // console.log(req.params.token);
+//     res.render('./views/confirmation.ejs', {token: req.params.token});
+// })
 
 // Confirmation Seller Get
-app.get('/sellerconfirmation/:token', function(req, res) {
-    // console.log(req.params.token);
-    res.render('./views/sellerconfirmation.ejs', {token: req.params.token});
-})
+// app.get('/sellerconfirmation/:token', function(req, res) {
+//     // console.log(req.params.token);
+//     res.render('./views/sellerconfirmation.ejs', {token: req.params.token});
+// })
 
 // Confirmation Post
-app.post('/confirmation/:token', function (req, res) {
+app.get('/confirmation/:token', function (req, res) {
     console.log(req);
     // Find a matching token
     Token.findOne({ token: req.params.token }, function (err, token) {
@@ -748,7 +748,7 @@ app.post('/confirmation/:token', function (req, res) {
 );
 
 // SellerConfirmation Post
-app.post('/sellerconfirmation/:token', function (req, res) {
+app.get('/sellerconfirmation/:token', function (req, res) {
     console.log(req);
     // Find a matching token
     SellerToken.findOne({ token: req.params.token }, function (err, token) {
