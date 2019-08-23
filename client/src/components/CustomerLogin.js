@@ -74,7 +74,7 @@ onSubmit = (event) => {
       email: this.state.customeremail
   }
 
-  axios.post('http://localhost:4000/portal/custlogin', Login)
+  axios.post('/portal/custlogin', Login)
   .then((res) => {
     console.log(res);
     // toast.notify('You are now logged in!!', {
