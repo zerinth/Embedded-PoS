@@ -1083,8 +1083,8 @@ function escapeRegex(text) {
 // }
 
 app.get('/logindetails', (req, res) => {
-    console.log(req);
-    console.log(req.query.mail);
+    // console.log(req);
+    // console.log(req.query.mail);
     // var details = {
     //     customername: customername,
     //     customermail: customermail,
@@ -1093,7 +1093,7 @@ app.get('/logindetails', (req, res) => {
     // }
     Customer.find({}, (err, customers) => {
     Sellers.find({}, (err, sellers) => {
-    res.json({customers: customers, sellers: sellers, loggermail: req.query.mail});
+    res.json({customers: customers, sellers: sellers});
 })
 })
 })
