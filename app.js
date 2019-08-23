@@ -740,7 +740,7 @@ app.get('/confirmation/:token', function (req, res) {
                 //   if(err) return res.status(400).send({ msg: 'Unable to create customer' });
                   console.log(customer);
                 })
-                res.redirect('/CustLogin');
+                res.redirect('https://radiant-ridge-95625.herokuapp.com/CustLogin');
             });
         });
     });
@@ -769,7 +769,7 @@ app.get('/sellerconfirmation/:token', function (req, res) {
                       console.log(sellerone);
                     })
                 // res.status(200).send("The account has been verified. Please log in.");
-                res.redirect('/SellLogin');
+                res.redirect('https://radiant-ridge-95625.herokuapp.com/SellLogin');
             });
         });
     });
