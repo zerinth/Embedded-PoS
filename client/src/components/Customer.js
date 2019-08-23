@@ -17,7 +17,7 @@ class Customer extends Component {
   componentDidMount() {
     var usermail = localStorage.getItem('username');
     if(username === null) {
-      this.props.history.push('/');
+      this.props.history.push('/CustLogin');
     }
     axios.get('/logindetails').then((res) => {
       this.setState({
