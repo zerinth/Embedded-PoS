@@ -1,0 +1,15 @@
+@media only screen and (max-width: 1440px) {
+    .list-group-item:first-child {
+        height: 280px;
+    }
+  }
+  @media only screen and (max-width: 1000px) {
+    .list-group-item:first-child {
+        height: 200px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .list-group-item:first-child {
+        height: 100%;
+    }
+  }

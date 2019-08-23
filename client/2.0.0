@@ -1,0 +1,4 @@
++ react-scripts@3.1.1
+added 69 packages from 25 contributors, removed 1 package, updated 18 packages and audited 2015202 packages in 373.516s
+found 39 vulnerabilities (28 low, 5 moderate, 6 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
