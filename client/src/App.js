@@ -19,6 +19,8 @@ import SellerEditProduct from './components/SellerEditProduct';
 import CustomerOrders from './components/CustomerOrders';
 import SellerOrders from './components/SellerOrders';
 import CustomerProductOne from './components/CustomerProductOne';
+import CustomerConfirmation from './components/CustomerConfirmation';
+import SellerConfirmation from './components/SellerConfirmation';
 // import CustomerProfile from './components/CustomerProfile';
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
     <Route path="/SellRegister" exact component={SellerRegister}/>
     <Route path="/CustForgot" exact component={CustomerForgot}/>
     <Route path="/SellForgot" exact component={SellerForgot} />
+    <Route path="/confirmation/:id" exact component={CustomerConfirmation}/>
+    <Route path="/sellerconfirmation/:id" exact component={SellerConfirmation}/>
     {/* <Route path='/customerproducts/:id' exact component={CustomerProducts} /> */}
     <Route path='/customerproducts' exact component={CustomerProducts} />
     {/* <Route path='/selleredit/:id' exact component={SellerEditHome} /> */}

@@ -720,7 +720,7 @@ router.post('/sellregister', upload.single('file'), (req, res) => {
 // })
 
 // Confirmation Post
-app.get('/confirmation/:token', function (req, res) {
+app.post('/confirmation/:token', function (req, res) {
     console.log(req);
     // Find a matching token
     Token.findOne({ token: req.params.token }, function (err, token) {
@@ -740,7 +740,7 @@ app.get('/confirmation/:token', function (req, res) {
                 //   if(err) return res.status(400).send({ msg: 'Unable to create customer' });
                   console.log(customer);
                 })
-                res.redirect('https://radiant-ridge-95625.herokuapp.com/CustLogin');
+                res.json({msg: 'Verified'});
             });
         });
     });
@@ -748,7 +748,7 @@ app.get('/confirmation/:token', function (req, res) {
 );
 
 // SellerConfirmation Post
-app.get('/sellerconfirmation/:token', function (req, res) {
+app.post('/sellerconfirmation/:token', function (req, res) {
     console.log(req);
     // Find a matching token
     SellerToken.findOne({ token: req.params.token }, function (err, token) {
@@ -769,7 +769,7 @@ app.get('/sellerconfirmation/:token', function (req, res) {
                       console.log(sellerone);
                     })
                 // res.status(200).send("The account has been verified. Please log in.");
-                res.redirect('https://radiant-ridge-95625.herokuapp.com/SellLogin');
+                res.json({msg: 'Verified'});
             });
         });
     });
@@ -1070,17 +1070,17 @@ function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
 
-function customerloggedIn() {
-    if(customername == '') {
-        res.redirect('https://localhost:3000');
-    }
-}
+// function customerloggedIn() {
+//     if(customername == '') {
+//         res.redirect('https://localhost:3000');
+//     }
+// }
 
-function sellerloggedIn() {
-    if(sellername == '') {
-        res.redirect('https://localhost:3000');
-    }
-}
+// function sellerloggedIn() {
+//     if(sellername == '') {
+//         res.redirect('https://localhost:3000');
+//     }
+// }
 
 app.get('/logindetails', (req, res) => {
     console.log(req);
