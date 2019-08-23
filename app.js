@@ -1082,7 +1082,7 @@ function escapeRegex(text) {
 //     }
 // }
 
-app.get('/logindetails', (req, res) => {
+router.get('/logindetails', (req, res) => {
     // console.log(req);
     // console.log(req.query.mail);
     // var details = {
@@ -1093,12 +1093,12 @@ app.get('/logindetails', (req, res) => {
     // }
     Customer.find({}, (err, customers) => {
     // Sellers.find({}, (err, sellers) => {
-    res.send({customers: customers});
+    res.send ({customers: customers});
 })
 })
 // })
 
-app.get('/sellerlogindetails', (req, res) => {
+router.get('/sellerlogindetails', (req, res) => {
     Sellers.find({}, (err, sellers) => {
         res.send({sellers: sellers});
     })
