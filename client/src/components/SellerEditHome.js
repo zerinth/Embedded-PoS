@@ -19,7 +19,7 @@ class SellerEditHome extends Component {
         // this.setState({
         //   sellermail: usermail
         // })
-        axios.get('http://localhost:4000/sellerproducts', {
+        axios.get('/sellerproducts', {
           params: {
             sellermail: usermail
           }

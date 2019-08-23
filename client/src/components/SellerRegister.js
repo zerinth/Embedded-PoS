@@ -110,7 +110,7 @@ onSubmit = (event) => {
   //     email: this.state.selleremail
   // }
 
-  axios.post('http://localhost:4000/portal/sellregister', data, { 
+  axios.post('/portal/sellregister', data, { 
     // receive two    parameter endpoint url ,form data
   })
   .then((res) => {

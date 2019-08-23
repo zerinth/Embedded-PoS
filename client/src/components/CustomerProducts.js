@@ -116,7 +116,7 @@ class CustomerProducts extends Component {
       //   console.log(escapeRegex(product.sellerplace));
       //   return new RegExp(escapeRegex(product.sellerplace), 'gi') === regex;
       // })
-      axios.get('http://localhost:4000/place', {
+      axios.get('/place', {
         params: {
           search: this.state.searchvalue
         }
@@ -188,7 +188,7 @@ class CustomerProducts extends Component {
     onkeydown = (event) => {
       var keycode = event.keyCode;
       if(keycode === 13) {
-        axios.get('http://localhost:4000/customerproducts', {
+        axios.get('/customerproducts', {
           params: {
             search: this.state.search
           }
@@ -268,7 +268,7 @@ class CustomerProducts extends Component {
           customermail: usermail
         })
         // axios.get('http://localhost:4000/customerproducts/' + this.props.match.params.id)
-        axios.get('http://localhost:4000/customerproducts')
+        axios.get('/customerproducts')
         .then((res) => {
             console.log(res);
             // if(res.data.msg) {

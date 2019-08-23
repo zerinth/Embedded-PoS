@@ -75,7 +75,7 @@ onSubmit = (event) => {
       email: this.state.selleremail
   }
 
-  axios.post('http://localhost:4000/portal/selllogin', Register)
+  axios.post('/portal/selllogin', Register)
   .then((res) => {
     // toast.notify('You are now logged in!!', {
     //   duration: 2000

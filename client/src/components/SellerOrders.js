@@ -18,7 +18,7 @@ class SellerOrders extends Component {
        this.setState({
          sellermail: usermail
        })
-        axios.get('http://localhost:4000/sellorders', {
+        axios.get('/sellorders', {
           params: {
             sellermail: usermail
           }

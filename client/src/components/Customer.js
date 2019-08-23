@@ -16,7 +16,7 @@ class Customer extends Component {
   }
   componentDidMount() {
     var usermail = localStorage.getItem('username');
-    axios.get('http://localhost:4000/logindetails').then((res) => {
+    axios.get('/logindetails').then((res) => {
       this.setState({
         customers: res.data.customers,
         customermail: usermail
@@ -25,14 +25,6 @@ class Customer extends Component {
 }
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
   onLogout = () => {
-    // axios.post('http://localhost:4000/portal/logout').then((res) => {
-    //   if(res.data.details.customermail === '') {
-    //     this.props.history.push('/');
-    //   }
-    // })
-    // toast.notify('Hope to see you again Bye!!', {
-    //   duration: 2000
-    // });
     localStorage.removeItem('username');
             localStorage.removeItem('expirationDate');
             localStorage.removeItem('token');

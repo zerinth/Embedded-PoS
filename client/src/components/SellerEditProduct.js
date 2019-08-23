@@ -56,7 +56,7 @@ class SellerEditProduct extends Component {
         this.setState({
           sellermail: usermail
         })
-      axios.get('http://localhost:4000/sellerproduct/' + this.props.match.params.id2, {
+      axios.get('/sellerproduct/' + this.props.match.params.id2, {
         params: {
           sellermail: usermail
         }
@@ -97,7 +97,7 @@ class SellerEditProduct extends Component {
         console.log(this.state.picture);
         console.log(this.props.location.pathname);
 
-        axios.post('http://localhost:4000' + this.props.location.pathname, data, { 
+        axios.post(this.props.location.pathname, data, { 
             // receive two parameter endpoint url ,form data
         })
         .then((res) => {

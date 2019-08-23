@@ -16,7 +16,7 @@ class CustomerOrders extends Component {
       this.setState({
         customermail: usermail
       })
-        axios.get('http://localhost:4000/custorders', {
+        axios.get('/custorders', {
           params: {
             customermail: usermail
           }
@@ -39,14 +39,6 @@ class CustomerOrders extends Component {
     this.setState({ rating, maxRating });
   }
   onLogout = () => {
-    // axios.post('http://localhost:4000/portal/logout').then((res) => {
-    //   if(res.data.details.customermail === '') {
-    //     this.props.history.push('/Customer');
-    //   }
-    // })
-    // toast.notify('Hope to see you again Bye!!', {
-    //   duration: 2000
-    // });
     localStorage.removeItem('username');
     localStorage.removeItem('expirationDate');
     localStorage.removeItem('token');
@@ -59,7 +51,7 @@ class CustomerOrders extends Component {
 
   onRating = (productid) => {
     console.log(this.state.rating);
-    axios.post('http://localhost:4000/rating/' + productid, {rating: this.state.rating}).then((res) => {
+    axios.post('/rating/' + productid, {rating: this.state.rating}).then((res) => {
       console.log(res);
       if(res.data.msg) {
         // toast.notify('You rating has been recorded successfully kudos!!', {
