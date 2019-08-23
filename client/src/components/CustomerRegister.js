@@ -107,7 +107,7 @@ onSubmit = (event) => {
   //     place: this.state.customerplace
   // }
 
-  axios.post('http://localhost:4000/portal/custregister', data, { 
+  axios.post('/portal/custregister', data, { 
     // receive two    parameter endpoint url ,form data
   })
   .then((res) => {
