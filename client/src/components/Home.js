@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid, Image } from 'semantic-ui-react';
 // import logo from './Logo.png';
 import comm from './communication-portal.png';
 

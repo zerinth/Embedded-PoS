@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'; 
+import { Grid } from 'semantic-ui-react';
 // import { Menu } from 'semantic-ui-react';
 // import toast from 'toasted-notes';
 // import 'toasted-notes/src/styles.css';
@@ -86,7 +87,9 @@ class SellerForgot extends Component {
   </div>
 </nav>
           <div style={{marginTop: '80px'}}>
-           <form className="form-horizontal">
+            <Grid>
+             <Grid.Column width={14}>
+             <form className="form-horizontal">
            <div className="form-group">
            <label htmlFor="inputEmail3" className="col-sm-2 control-label">Email</label>
            <div className="col-sm-8">
@@ -99,6 +102,8 @@ class SellerForgot extends Component {
            </div>
            </div>
            </form>
+             </Grid.Column>
+            </Grid>
           </div>
           </div>
         )

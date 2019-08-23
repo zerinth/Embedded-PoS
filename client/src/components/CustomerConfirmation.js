@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'; 
+import { Grid } from 'semantic-ui-react';
 
 class CustomerConfirmation extends Component {
 
@@ -9,15 +10,15 @@ class CustomerConfirmation extends Component {
         customermail: '',
         sellermail: '' 
     }
-    componentDidMount() {
-        var usermail = localStorage.getItem('username');
-        this.setState({
-           customermail: usermail
-         })
-        if(usermail === null) {
-           this.props.history.push('/');
-         }
-      }
+    // componentDidMount() {
+    //     var usermail = localStorage.getItem('username');
+    //     this.setState({
+    //        customermail: usermail
+    //      })
+    //     if(usermail === null) {
+    //        this.props.history.push('/');
+    //      }
+    //   }
     
     onChangeemail = (event) => {
         this.setState({
@@ -73,6 +74,8 @@ class CustomerConfirmation extends Component {
   </div>
 </nav>
            <div style={{marginTop: '80px'}}>
+           <Grid>
+            <Grid.Column width={14}>
            <form className="form-horizontal">
            <div className="form-group">
            <label htmlFor="inputEmail3" className="col-sm-2 control-label">Email</label>
@@ -86,6 +89,8 @@ class CustomerConfirmation extends Component {
            </div>
            </div>
            </form>
+           </Grid.Column>
+           </Grid>
           </div>
           </div>
         )
