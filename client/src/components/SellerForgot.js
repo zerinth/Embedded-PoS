@@ -46,7 +46,7 @@ class SellerForgot extends Component {
         email: this.state.selleremail
     }
 
-      axios.post('/sellerforgot', Forgot)
+      axios.post('/portal/sellerforgot', Forgot)
   .then((res) => {
     // toast.notify('Password Reset Link has been sent to your email', {
     //   duration: 2000

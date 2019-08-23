@@ -22,7 +22,7 @@ class SellerEditHome extends Component {
         if(usermail === null) {
           this.props.history.push('/SellLogin');
         }
-        axios.get('/sellerproducts', {
+        axios.get('/portal/sellerproducts', {
           params: {
             sellermail: usermail
           }

@@ -59,7 +59,7 @@ class SellerEditProduct extends Component {
         if(usermail === null) {
           this.props.history.push('/SellLogin');
       }
-      axios.get('/sellerproduct/' + this.props.match.params.id2, {
+      axios.get('/portal/sellerproduct/' + this.props.match.params.id2, {
         params: {
           sellermail: usermail
         }
@@ -100,7 +100,7 @@ class SellerEditProduct extends Component {
         console.log(this.state.picture);
         console.log(this.props.location.pathname);
 
-        axios.post(this.props.location.pathname, data, { 
+        axios.post( '/portal/' + this.props.location.pathname, data, { 
             // receive two parameter endpoint url ,form data
         })
         .then((res) => {

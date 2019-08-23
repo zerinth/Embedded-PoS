@@ -116,7 +116,7 @@ class CustomerProducts extends Component {
       //   console.log(escapeRegex(product.sellerplace));
       //   return new RegExp(escapeRegex(product.sellerplace), 'gi') === regex;
       // })
-      axios.get('/place', {
+      axios.get('/portal/place', {
         params: {
           search: this.state.searchvalue
         }
@@ -188,7 +188,7 @@ class CustomerProducts extends Component {
     onkeydown = (event) => {
       var keycode = event.keyCode;
       if(keycode === 13) {
-        axios.get('/customerproducts', {
+        axios.get('/portal/customerproducts', {
           params: {
             search: this.state.search
           }
@@ -271,7 +271,7 @@ class CustomerProducts extends Component {
           this.props.history.push('/CustLogin');
         }
         // axios.get('http://localhost:4000/customerproducts/' + this.props.match.params.id)
-        axios.get('/customerproducts')
+        axios.get('/portal/customerproducts')
         .then((res) => {
             console.log(res);
             // if(res.data.msg) {

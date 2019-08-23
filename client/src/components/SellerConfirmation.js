@@ -33,7 +33,7 @@ class SellerConfirmation extends Component {
         email: this.state.selleremail
     }
 
-      axios.post('/sellerconfirmation/' + this.props.match.params.id, Forgot)
+      axios.post('/portal/sellerconfirmation/' + this.props.match.params.id, Forgot)
   .then((res) => {
     // toast.notify('Password Reset Link has been sent to your email', {
     //   duration: 2000

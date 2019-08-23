@@ -53,7 +53,7 @@ class CustomerForgot extends Component {
         email: this.state.customeremail
     }
 
-      axios.post('/forgot', Forgot)
+      axios.post('/portal/forgot', Forgot)
   .then((res) => {
     // toast.notify('Password Reset Link has been sent to your email', {
     //   duration: 2000

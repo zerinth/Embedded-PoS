@@ -99,7 +99,7 @@ cloudinary.config({
 });
 
 
-app.get('/place', (req, res) => {
+router.get('/place', (req, res) => {
     console.log(req);
     var noMatch = null;
     if(req.query.search) {
@@ -139,7 +139,7 @@ app.get('/place', (req, res) => {
 })
 
 // app.get('/customerproducts/:id', (req, res) => {
-    app.get('/customerproducts', (req, res) => {
+    router.get('/customerproducts', (req, res) => {
     console.log(req);
     var noMatch = null;
     if(req.query.search) {
@@ -181,7 +181,7 @@ app.get('/place', (req, res) => {
     }
 })
 
-app.get('/sellerproducts', (req, res) => {
+router.get('/sellerproducts', (req, res) => {
     console.log(req);
     Seller.findOne({email: req.query.sellermail}, function (err, user) {
         if (!user) return res.send({ msg: 'The Seller Id ' + req.body.id + ' is not associated with any Seller account.'});
@@ -190,14 +190,14 @@ app.get('/sellerproducts', (req, res) => {
     })
 })
 
-app.get('/custorders', (req, res) => {
+router.get('/custorders', (req, res) => {
     ClientOrder.find({clientemail: req.query.customermail}, function(err, orders) {
         console.log(orders);
         res.send({orders: orders});
     })
 })
 
-app.post('/rating/:id', (req, res) => {
+router.post('/rating/:id', (req, res) => {
     console.log(req);
     Product.findOne({_id: req.params.id}, (err, product) => {
         console.log(product);
@@ -211,7 +211,7 @@ app.post('/rating/:id', (req, res) => {
     })
 })
 
-app.get('/sellorders', (req, res) => {
+router.get('/sellorders', (req, res) => {
     ClientOrder.find({selleremail: req.query.sellermail}, function(err, orders) {
         console.log(orders);
         // var details = {
@@ -226,7 +226,7 @@ app.get('/sellorders', (req, res) => {
 
 
 
-app.post('/selleredit/:id2', upload.single('file'), (req, res) => {
+router.post('/selleredit/:id2', upload.single('file'), (req, res) => {
 
     console.log(req.params);
     Seller.findOne({email: req.body.sellermail},function (err, user) {
@@ -292,7 +292,7 @@ app.post('/selleredit/:id2', upload.single('file'), (req, res) => {
     })
 })
 
-app.post('/selleraddproduct', upload.single('file'), (req, res) => {
+router.post('/selleraddproduct', upload.single('file'), (req, res) => {
     console.log(req.file);
     console.log(req.files);
     cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
@@ -353,7 +353,7 @@ app.post('/selleraddproduct', upload.single('file'), (req, res) => {
     })
 })
 
-app.post('/checkout/:id', function(req, res) {
+router.post('/checkout/:id', function(req, res) {
    console.log(req);
    console.log(customername);
 //    var transporter = nodemailer.createTransport(Sendgrid({
@@ -447,7 +447,7 @@ var sellermailOptions = { from: 'zshopping1440@gmail.com', to:req.body.sellerema
 });
 })
 
-app.get('/sellerproduct/:id2', function(req, res) {
+router.get('/sellerproduct/:id2', function(req, res) {
     Seller.findOne({email: req.query.sellermail}, function(err, user) {
         if (!user) return res.send({ msg: 'The Seller Id ' + req.body.id + ' is not associated with any Seller account.'});
         var product = user.products.filter((product) => {
@@ -464,7 +464,7 @@ app.get('/sellerproduct/:id2', function(req, res) {
         })
       })
 
-app.get('/customerproductone/:id', (req, res) => {
+router.get('/customerproductone/:id', (req, res) => {
     Product.find({_id: req.params.id}, function(err, product) {
         console.log(product);
         var viewcount = product[0].viewcount + 1;
@@ -482,7 +482,7 @@ app.get('/customerproductone/:id', (req, res) => {
     })
 })
 
-app.get('/customerproduct/:id2', function(req, res) {
+router.get('/customerproduct/:id2', function(req, res) {
     Client.findOne({email: req.query.customermail}, function(err, user) {
         console.log(user);
         if (!user) return res.send({msg: 'Unable to find user'});
@@ -720,7 +720,7 @@ router.post('/sellregister', upload.single('file'), (req, res) => {
 // })
 
 // Confirmation Post
-app.post('/confirmation/:token', function (req, res) {
+router.post('/confirmation/:token', function (req, res) {
     console.log(req);
     // Find a matching token
     Token.findOne({ token: req.params.token }, function (err, token) {
@@ -748,7 +748,7 @@ app.post('/confirmation/:token', function (req, res) {
 );
 
 // SellerConfirmation Post
-app.post('/sellerconfirmation/:token', function (req, res) {
+router.post('/sellerconfirmation/:token', function (req, res) {
     console.log(req);
     // Find a matching token
     SellerToken.findOne({ token: req.params.token }, function (err, token) {
@@ -777,17 +777,17 @@ app.post('/sellerconfirmation/:token', function (req, res) {
 );
 
 //Resend get
-app.get('/resend', function (req, res) {
+router.get('/resend', function (req, res) {
     res.render('resend.ejs');
 })
 
 //SellerResend get
-app.get('/sellerresend', function (req, res) {
+router.get('/sellerresend', function (req, res) {
     res.render('sellerresend.ejs');
 })
 
 //Resend post
-app.post('/resend', function (req, res) {
+router.post('/resend', function (req, res) {
     Client.findOne({ email: req.body.email }, function (err, user) {
         if (!user) return res.status(400).send({ msg: 'We were unable to find a user with that email.' });
         if (user.isVerified) return res.status(400).send({ msg: 'This account has already been verified. Please log in.' });
@@ -822,7 +822,7 @@ app.post('/resend', function (req, res) {
 );
 
 //SellerResend post
-app.post('/sellerresend', function (req, res) {
+router.post('/sellerresend', function (req, res) {
     Seller.findOne({ email: req.body.email }, function (err, user) {
         if (!user) return res.status(400).send({ msg: 'We were unable to find a user with that email.' });
         if (user.isVerified) return res.status(400).send({ msg: 'This account has already been verified. Please log in.' });
@@ -862,12 +862,12 @@ app.post('/sellerresend', function (req, res) {
 // });
 
 // SellerForgot get
-app.get('/sellerforgot', function(req, res) {
+router.get('/sellerforgot', function(req, res) {
     res.render('sellerforgot.ejs');
 });
 
 //Forgot post
-app.post('/forgot', function (req, res) {
+router.post('/forgot', function (req, res) {
     Client.findOne({ email: req.body.email }, function (err, user) {
         console.log(req);
         if (!user) {
@@ -918,7 +918,7 @@ app.post('/forgot', function (req, res) {
 );
 
 //SellerForgot post
-app.post('/sellerforgot', function (req, res) {
+router.post('/sellerforgot', function (req, res) {
     Seller.findOne({ email: req.body.email }, function (err, user) {
         console.log(req);
         if (!user) {
@@ -969,17 +969,17 @@ app.post('/sellerforgot', function (req, res) {
 );
 
 // Reset
-app.get('/reset/:token', function(req, res) {
+router.get('/reset/:token', function(req, res) {
     res.render('reset.ejs', {token: req.params.token});
 });
 
 //SellerReset
-app.get('/sellerreset/:token', function(req, res) {
+router.get('/sellerreset/:token', function(req, res) {
     res.render('sellerreset.ejs', {token: req.params.token});
 });
 
 //Reset post
-app.post('/reset/:token', function (req, res) {
+router.post('/reset/:token', function (req, res) {
     console.log(req);
     // Find a matching token
     Token.findOne({ token: req.params.token }, function (err, token) {
@@ -1002,7 +1002,7 @@ app.post('/reset/:token', function (req, res) {
 })
 
 //SellerReset post
-app.post('/sellerreset/:token', function (req, res) {
+router.post('/sellerreset/:token', function (req, res) {
     console.log(req);
     // Find a matching token
     SellerToken.findOne({ token: req.params.token }, function (err, token) {

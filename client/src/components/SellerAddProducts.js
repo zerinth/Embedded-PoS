@@ -100,7 +100,7 @@ class SellerAddProducts extends Component {
         //     quantity: this.state.quantity,
         //     discount: this.state.discount
         // }
-        axios.post('/selleraddproduct', data, { 
+        axios.post('/portal/selleraddproduct', data, { 
             // receive two    parameter endpoint url ,form data
         })
         .then((res) => {

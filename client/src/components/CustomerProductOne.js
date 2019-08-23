@@ -28,7 +28,7 @@ class CustomerProduct extends Component {
     this.setState({
       customermail: usermail
     })
-      axios.get('/customerproductone/' + this.props.match.params.id2)
+      axios.get('/portal/customerproductone/' + this.props.match.params.id2)
       .then((res) => {
         console.log(res);
         // if(usermail === null) {

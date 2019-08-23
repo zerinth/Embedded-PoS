@@ -91,7 +91,7 @@ class CustomerProduct extends Component {
       this.setState({
           customermail: usermail
         })
-      axios.get('/customerproduct/' + this.props.match.params.id2, {
+      axios.get('/portal/customerproduct/' + this.props.match.params.id2, {
           params: {
               customermail: usermail
           }
@@ -152,7 +152,7 @@ class CustomerProduct extends Component {
            clientphone: this.state.Information.clientphone,
            sellerphone: this.state.Information.sellerphone
         }
-        axios.post('/checkout/' + this.props.match.params.id2, details)
+        axios.post('/portal/checkout/' + this.props.match.params.id2, details)
         .then((res) => {
             console.log(res);
             this.props.history.push('/customerproducts');

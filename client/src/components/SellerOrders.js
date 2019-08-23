@@ -21,7 +21,7 @@ class SellerOrders extends Component {
        if(usermail === null) {
         this.props.history.push('/');
     }
-        axios.get('/sellorders', {
+        axios.get('/portal/sellorders', {
           params: {
             sellermail: usermail
           }

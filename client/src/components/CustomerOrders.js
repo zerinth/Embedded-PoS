@@ -19,7 +19,7 @@ class CustomerOrders extends Component {
       this.setState({
         customermail: usermail
       })
-        axios.get('/custorders', {
+        axios.get('/portal/custorders', {
           params: {
             customermail: usermail
           }
@@ -54,7 +54,7 @@ class CustomerOrders extends Component {
 
   onRating = (productid) => {
     console.log(this.state.rating);
-    axios.post('/rating/' + productid, {rating: this.state.rating}).then((res) => {
+    axios.post('/portal/rating/' + productid, {rating: this.state.rating}).then((res) => {
       console.log(res);
       if(res.data.msg) {
         // toast.notify('You rating has been recorded successfully kudos!!', {
