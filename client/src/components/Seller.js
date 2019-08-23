@@ -20,7 +20,7 @@ class Seller extends Component {
       this.props.history.push('/SellLogin');
     }
     axios.get('/sellerlogindetails').then((res) => {
-      if(usermail !== null) {
+      if(res.data.sellers) {
       this.setState({
         sellers: res.data.sellers,
         sellermail: usermail

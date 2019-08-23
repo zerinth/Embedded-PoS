@@ -1093,14 +1093,14 @@ app.get('/logindetails', (req, res) => {
     // }
     Customer.find({}, (err, customers) => {
     // Sellers.find({}, (err, sellers) => {
-    res.json({customers: customers});
+    res.send({customers: customers});
 })
 })
 // })
 
 app.get('/sellerlogindetails', (req, res) => {
     Sellers.find({}, (err, sellers) => {
-        res.json({sellers: sellers});
+        res.send({sellers: sellers});
     })
 })
 

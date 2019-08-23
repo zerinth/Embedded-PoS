@@ -20,7 +20,7 @@ class Customer extends Component {
       this.props.history.push('/CustLogin');
     }
     axios.get('/logindetails').then((res) => {
-      if(usermail !== null) {
+      if(res.data.customers) {
         this.setState({
           customers: res.data.customers,
           customermail: usermail
