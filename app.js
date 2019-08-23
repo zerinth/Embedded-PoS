@@ -710,13 +710,13 @@ router.post('/sellregister', upload.single('file'), (req, res) => {
 // Confirmation Get
 app.get('/confirmation/:token', function(req, res) {
     // console.log(req.params.token);
-    res.render('confirmation.ejs', {token: req.params.token});
+    res.render('./views/confirmation.ejs', {token: req.params.token});
 })
 
 // Confirmation Seller Get
 app.get('/sellerconfirmation/:token', function(req, res) {
     // console.log(req.params.token);
-    res.render('sellerconfirmation.ejs', {token: req.params.token});
+    res.render('./views/sellerconfirmation.ejs', {token: req.params.token});
 })
 
 // Confirmation Post
@@ -740,7 +740,7 @@ app.post('/confirmation/:token', function (req, res) {
                 //   if(err) return res.status(400).send({ msg: 'Unable to create customer' });
                   console.log(customer);
                 })
-                res.redirect('http://localhost:3000/CustLogin');
+                res.redirect('/CustLogin');
             });
         });
     });
@@ -769,7 +769,7 @@ app.post('/sellerconfirmation/:token', function (req, res) {
                       console.log(sellerone);
                     })
                 // res.status(200).send("The account has been verified. Please log in.");
-                res.redirect('http://localhost:3000/SellLogin');
+                res.redirect('/SellLogin');
             });
         });
     });
@@ -995,7 +995,7 @@ app.post('/reset/:token', function (req, res) {
             user.save(function (err) {
                 if (err) { return res.status(500).send({ msg: err.message }); }
                 // res.status(200).send("The account has been verified. Please log in.");
-                res.redirect('http://localhost:3000');
+                res.redirect('/');
             });
         });
     });
@@ -1018,7 +1018,7 @@ app.post('/sellerreset/:token', function (req, res) {
             user.save(function (err) {
                 if (err) { return res.status(500).send({ msg: err.message }); }
                 // res.status(200).send("The account has been verified. Please log in.");
-                res.redirect('http://localhost:3000');
+                res.redirect('/');
             });
         });
     });
@@ -1093,7 +1093,7 @@ app.get('/logindetails', (req, res) => {
     // }
     Customer.find({}, (err, customers) => {
         if(!customers) {
-            
+
         }
     Sellers.find({}, (err, sellers) => {
     res.json({customers: customers, sellers: sellers, loggermail: req.query.mail});
