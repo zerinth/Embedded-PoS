@@ -1092,9 +1092,6 @@ app.get('/logindetails', (req, res) => {
     //     sellermail: sellermail
     // }
     Customer.find({}, (err, customers) => {
-        if(!customers) {
-
-        }
     Sellers.find({}, (err, sellers) => {
     res.json({customers: customers, sellers: sellers, loggermail: req.query.mail});
 })
