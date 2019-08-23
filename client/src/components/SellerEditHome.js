@@ -19,6 +19,9 @@ class SellerEditHome extends Component {
         // this.setState({
         //   sellermail: usermail
         // })
+        if(usermail === null) {
+          this.props.history.push('/SellLogin');
+        }
         axios.get('/sellerproducts', {
           params: {
             sellermail: usermail
@@ -33,9 +36,9 @@ class SellerEditHome extends Component {
         //         products: res.data.products
         //     })
         // }
-        if(usermail === null) {
-          this.props.history.push('/SellLogin');
-        }
+        // if(usermail === null) {
+        //   this.props.history.push('/SellLogin');
+        // }
         if(usermail !== null) {
           this.setState({
             products: res.data.products,

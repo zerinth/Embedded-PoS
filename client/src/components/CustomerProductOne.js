@@ -22,15 +22,18 @@ class CustomerProduct extends Component {
         //     this.props.history.push('/CustLogin');
         // }
     var usermail = localStorage.getItem('username');
+    if(usermail === null) {
+      this.props.history.push('/CustLogin');
+  }
     this.setState({
       customermail: usermail
     })
       axios.get('/customerproductone/' + this.props.match.params.id2)
       .then((res) => {
         console.log(res);
-        if(usermail === null) {
-            this.props.history.push('/CustLogin');
-        }
+        // if(usermail === null) {
+        //     this.props.history.push('/CustLogin');
+        // }
         // // if(res.data.details.customermail === '') {
         // //     this.props.history.push('/CustLogin');
         // // }

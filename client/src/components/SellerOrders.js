@@ -18,15 +18,18 @@ class SellerOrders extends Component {
        this.setState({
          sellermail: usermail
        })
+       if(usermail === null) {
+        this.props.history.push('/');
+    }
         axios.get('/sellorders', {
           params: {
             sellermail: usermail
           }
         }).then((res) => {
             console.log(res);
-            if(usermail === null) {
-                this.props.history.push('/Seller');
-            }
+            // if(usermail === null) {
+            //     this.props.history.push('/Seller');
+            // }
             if(usermail !== null) {
             this.setState({
                orders: res.data.orders

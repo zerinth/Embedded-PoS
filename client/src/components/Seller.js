@@ -16,6 +16,9 @@ class Seller extends Component {
   }
   componentDidMount() {
     var usermail = localStorage.getItem('sellername');
+    if(usermail === null) {
+      this.props.history.push('/');
+    }
     axios.get('/logindetails').then((res) => {
       this.setState({
         sellers: res.data.sellers,

@@ -17,7 +17,7 @@ class CustomerLogin extends Component {
     console.log(localStorage.getItem('username'));
     var usermail = localStorage.getItem('username');
     if(usermail !== null) {
-      this.props.history.push('/Customer');
+      this.props.history.push('/');
     }
     // axios.get('http://localhost:4000/logindetails', {
     //   params: {

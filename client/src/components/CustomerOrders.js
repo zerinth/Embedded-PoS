@@ -13,6 +13,9 @@ class CustomerOrders extends Component {
     }
     componentDidMount() {
       var usermail = localStorage.getItem('username');
+      if(usermail === null) {
+        this.props.history.push('/');
+    }
       this.setState({
         customermail: usermail
       })
@@ -21,10 +24,10 @@ class CustomerOrders extends Component {
             customermail: usermail
           }
         }).then((res) => {
-            console.log(res);
-            if(usermail === null) {
-                this.props.history.push('/Customer');
-            }
+            // console.log(res);
+            // if(usermail === null) {
+            //     this.props.history.push('/');
+            // }
             if(usermail !== null) {
             this.setState({
                orders: res.data.orders

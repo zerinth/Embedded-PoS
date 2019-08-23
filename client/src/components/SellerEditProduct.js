@@ -56,6 +56,9 @@ class SellerEditProduct extends Component {
         this.setState({
           sellermail: usermail
         })
+        if(usermail === null) {
+          this.props.history.push('/SellLogin');
+      }
       axios.get('/sellerproduct/' + this.props.match.params.id2, {
         params: {
           sellermail: usermail
@@ -63,9 +66,9 @@ class SellerEditProduct extends Component {
       })
       .then((res) => {
           console.log(res);
-          if(usermail === null) {
-              this.props.history.push('/SellLogin');
-          }
+          // if(usermail === null) {
+          //     this.props.history.push('/SellLogin');
+          // }
           if(usermail !== null) {
             this.setState({
                 name: res.data.sproduct[0].name,

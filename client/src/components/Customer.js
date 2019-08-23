@@ -16,6 +16,9 @@ class Customer extends Component {
   }
   componentDidMount() {
     var usermail = localStorage.getItem('username');
+    if(username === null) {
+      this.props.history.push('/');
+    }
     axios.get('/logindetails').then((res) => {
       this.setState({
         customers: res.data.customers,
@@ -34,7 +37,7 @@ class Customer extends Component {
                customermail: username
             })
             if(username === null) {
-              this.props.history.push('/Customer');
+              this.props.history.push('/');
             }
   }
   render() {

@@ -84,7 +84,10 @@ class CustomerProduct extends Component {
         // if(this.props.match.params.id2 === '') {
         //     this.props.history.push('/CustLogin');
         // }
-      var usermail = localStorage.getItem('username');
+        var usermail = localStorage.getItem('username');
+        if(usermail === null) {
+          this.props.history.push('/CustLogin');
+      }
       this.setState({
           customermail: usermail
         })
@@ -95,9 +98,9 @@ class CustomerProduct extends Component {
       })
       .then((res) => {
         console.log(res);
-        if(usermail === null) {
-            this.props.history.push('/CustLogin');
-        }
+        // if(usermail === null) {
+        //     this.props.history.push('/CustLogin');
+        // }
         // if(res.data.details.customermail === '') {
         //     this.props.history.push('/CustLogin');
         // }

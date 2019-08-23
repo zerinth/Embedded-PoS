@@ -267,6 +267,9 @@ class CustomerProducts extends Component {
         this.setState({
           customermail: usermail
         })
+        if(this.state.customermail === null) {
+          this.props.history.push('/CustLogin');
+        }
         // axios.get('http://localhost:4000/customerproducts/' + this.props.match.params.id)
         axios.get('/customerproducts')
         .then((res) => {
@@ -278,9 +281,9 @@ class CustomerProducts extends Component {
             //     this.props.history.push('/CustLogin');
             // }
             // if(!res.data.msg) {
-              if(this.state.customermail === null) {
-                this.props.history.push('/CustLogin');
-              }
+              // if(this.state.customermail === null) {
+              //   this.props.history.push('/CustLogin');
+              // }
               if(this.state.customermail !== null) {
                 this.setState({
                   products: res.data.products
